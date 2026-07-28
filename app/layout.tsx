@@ -26,7 +26,9 @@ const display = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://alejodev17.github.io"),
+  metadataBase: new URL(
+    "https://alejandro-lozano-lab.calivallelozano.chatgpt.site",
+  ),
   title: {
     default: "Alejandro Lozano | Software, Automatización e IA",
     template: "%s | Alejandro Lozano",
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
   authors: [{ name: profile.name, url: profile.github }],
   creator: profile.name,
   alternates: {
-    canonical: "/Mi_portafolio_web/",
+    canonical: "/",
   },
   openGraph: {
     type: "profile",
@@ -56,7 +58,7 @@ export const metadata: Metadata = {
     title: "Alejandro Lozano — Software, Automatización e IA",
     description:
       "Diseño soluciones digitales, automatizo procesos y conecto sistemas.",
-    url: "/Mi_portafolio_web/",
+    url: "/",
     siteName: "Alejandro Lozano Portfolio",
     images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
