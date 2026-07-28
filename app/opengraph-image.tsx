@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 
+export const dynamic = "force-static";
 export const alt =
   "Alejandro Lozano — Software, automatización e inteligencia artificial";
 export const size = { width: 1200, height: 630 };
