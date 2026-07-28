@@ -11,6 +11,7 @@ Portafolio profesional construido como un laboratorio digital de automatización
 - GSAP + ScrollTrigger
 - React Three Fiber + Drei + Three.js
 - Lenis
+- Vinext como adaptador de producción para el runtime de hosting
 
 ## Desarrollo local
 
@@ -28,8 +29,13 @@ Abre `http://localhost:3000`.
 ```bash
 npm run lint
 npm run build
+npm run build:next
 npm start
 ```
+
+`npm run build` genera el bundle de producción compatible con el hosting en
+`dist/`. `npm run build:next` ejecuta una compilación nativa de Next.js para
+validación adicional.
 
 ## Edición de contenido
 
@@ -74,4 +80,7 @@ npm run lint
 npm run build
 ```
 
-El proyecto puede desplegarse en cualquier plataforma compatible con Next.js. Para GitHub Pages se requiere una exportación estática y configurar el `basePath` correspondiente; para despliegues con servidor o edge runtime puede publicarse directamente.
+El proyecto conserva su estructura Next.js. El comando principal de build usa
+Vinext para producir el entrypoint de producción requerido por el hosting. Para
+otras plataformas se puede usar `npm run build:next` o adaptar el comando de
+build al proveedor elegido.

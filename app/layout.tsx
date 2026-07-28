@@ -58,14 +58,14 @@ export const metadata: Metadata = {
       "Diseño soluciones digitales, automatizo procesos y conecto sistemas.",
     url: "/Mi_portafolio_web/",
     siteName: "Alejandro Lozano Portfolio",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Alejandro Lozano — Software, Automatización e IA",
     description:
       "Desarrollo de software, automatización, integraciones y soluciones con IA.",
-    images: ["/opengraph-image"],
+    images: ["/og.png"],
   },
   category: "technology",
 };
