@@ -10,11 +10,21 @@ export type Project = {
   stack: string[];
   featured?: boolean;
   accent: "cyan" | "steel" | "blue";
-  media?: {
-    video: string;
-    poster: string;
-    duration: string;
-  };
+  media?:
+    | {
+        type: "video";
+        video: string;
+        poster: string;
+        duration: string;
+      }
+    | {
+        type: "gallery";
+        images: {
+          src: string;
+          label: string;
+          alt: string;
+        }[];
+      };
 };
 
 export const profile = {
@@ -237,6 +247,7 @@ export const projects: Project[] = [
     stack: ["Python", "RPA", "DbMédico", "Esculapio", "PDF", "Google Drive"],
     accent: "blue",
     media: {
+      type: "video",
       video: "/projects/esculapio-rpa.mp4",
       poster: "/projects/esculapio-rpa-poster.jpg",
       duration: "00:34",
@@ -262,6 +273,26 @@ export const projects: Project[] = [
       "Gestión de usuarios",
     ],
     accent: "cyan",
+    media: {
+      type: "gallery",
+      images: [
+        {
+          src: "/projects/campus-acceso.png",
+          label: "Acceso",
+          alt: "Pantalla de acceso del Campus ValleSalud",
+        },
+        {
+          src: "/projects/campus-bienvenida.png",
+          label: "Bienvenida",
+          alt: "Mensaje de bienvenida del Campus ValleSalud",
+        },
+        {
+          src: "/projects/campus-cursos.png",
+          label: "Cursos",
+          alt: "Catálogo de cursos disponibles en el Campus ValleSalud",
+        },
+      ],
+    },
   },
   {
     id: "microsoft-flows",

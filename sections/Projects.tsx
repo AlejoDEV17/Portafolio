@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import {
@@ -19,11 +20,18 @@ const projectIcons = [Workflow, GitBranch, Database, Cpu, Workflow, CheckCircle2
 
 export function Projects() {
   const [active, setActive] = useState(0);
+  const [galleryIndex, setGalleryIndex] = useState(0);
   const project = projects[active];
   const Icon = projectIcons[active];
 
   const move = (direction: number) => {
+    setGalleryIndex(0);
     setActive((current) => (current + direction + projects.length) % projects.length);
+  };
+
+  const selectProject = (index: number) => {
+    setGalleryIndex(0);
+    setActive(index);
   };
 
   return (
@@ -80,7 +88,7 @@ export function Projects() {
                 </div>
               </div>
 
-              {project.media ? (
+              {project.media?.type === "video" ? (
                 <div className="project-proof">
                   <div className="project-proof__header">
                     <span>CASE STUDY / {project.index}</span>
@@ -126,6 +134,58 @@ export function Projects() {
                     </ol>
                   </div>
                 </div>
+              ) : project.media?.type === "gallery" ? (
+                <div className="project-proof project-gallery">
+                  <div className="project-proof__header">
+                    <span>PLATFORM VIEW / {project.index}</span>
+                    <span>CAPTURAS REALES</span>
+                  </div>
+                  <div className="project-gallery__viewport">
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={project.media.images[galleryIndex].src}
+                        src={project.media.images[galleryIndex].src}
+                        alt={project.media.images[galleryIndex].alt}
+                        initial={{ opacity: 0, scale: 1.015 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </AnimatePresence>
+                    <div className="project-proof__overlay">
+                      <span>
+                        <i />
+                        CAMPUS / VISTA REAL
+                      </span>
+                      <span>
+                        0{galleryIndex + 1} / 0{project.media.images.length}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="project-gallery__rail">
+                    {project.media.images.map((image, index) => (
+                      <button
+                        key={image.src}
+                        type="button"
+                        className={galleryIndex === index ? "is-active" : ""}
+                        onClick={() => setGalleryIndex(index)}
+                        aria-label={`Ver captura: ${image.label}`}
+                      >
+                        <Image
+                          src={image.src}
+                          alt=""
+                          width={240}
+                          height={135}
+                          aria-hidden="true"
+                        />
+                        <span>
+                          <small>0{index + 1}</small>
+                          {image.label}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               ) : (
                 <div className="project-machine" aria-hidden="true">
                   <div className="project-machine__header">
@@ -162,7 +222,7 @@ export function Projects() {
                   key={item.id}
                   type="button"
                   className={active === index ? "is-active" : ""}
-                  onClick={() => setActive(index)}
+                  onClick={() => selectProject(index)}
                   aria-label={`Ver ${item.title}`}
                 />
               ))}
