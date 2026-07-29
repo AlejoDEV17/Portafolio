@@ -245,16 +245,22 @@ export const projects: Project[] = [
   {
     id: "corporate-campus",
     index: "04",
-    label: "Automatización de aprendizaje",
+    label: "Plataforma corporativa de aprendizaje",
     title: "Campus corporativo Moodle",
     problem:
-      "Gestión dispersa de usuarios, cursos, evaluaciones y datos de formación.",
+      "El campus de terceros generaba costos recurrentes y limitaba la personalización, el seguimiento de colaboradores y la integración con los sistemas internos.",
     solution:
-      "Flujos de gestión y sincronización apoyados en APIs y automatización.",
+      "Diseñé e implementé un campus propio en Moodle, integrado con Zoho Creator para sincronizar colaboradores, gestionar usuarios, asignar cursos y centralizar los estados de capacitación.",
     result:
-      "Seguimiento más claro y datos de formación conectados.",
-    role: "Automatización e integración",
-    stack: ["Moodle", "APIs", "Python", "Zoho Creator"],
+      "Se eliminaron los costos de licenciamiento del campus anterior y se redujo el trabajo manual, con mayor control de avances, evaluaciones y certificaciones en una plataforma escalable.",
+    role: "Diseño, implementación e integración",
+    stack: [
+      "Moodle",
+      "Zoho Creator",
+      "APIs",
+      "Automatización",
+      "Gestión de usuarios",
+    ],
     accent: "cyan",
   },
   {
