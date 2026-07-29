@@ -16,6 +16,10 @@ export type Project = {
         video: string;
         poster: string;
         duration: string;
+        facts: {
+          label: string;
+          value: string;
+        }[];
       }
     | {
         type: "gallery";
@@ -23,6 +27,10 @@ export type Project = {
           src: string;
           label: string;
           alt: string;
+        }[];
+        facts: {
+          label: string;
+          value: string;
         }[];
       };
 };
@@ -251,6 +259,11 @@ export const projects: Project[] = [
       video: "/projects/esculapio-rpa.mp4",
       poster: "/projects/esculapio-rpa-poster.jpg",
       duration: "00:34",
+      facts: [
+        { label: "Flujo RPA", value: "Esculapio" },
+        { label: "Entrega", value: "PDF automático" },
+        { label: "Archivo", value: "Google Drive" },
+      ],
     },
   },
   {
@@ -291,6 +304,11 @@ export const projects: Project[] = [
           label: "Cursos",
           alt: "Catálogo de cursos disponibles en el Campus ValleSalud",
         },
+      ],
+      facts: [
+        { label: "Integración", value: "Moodle + Zoho" },
+        { label: "Gestión", value: "Usuarios sincronizados" },
+        { label: "Operación", value: "Cursos centralizados" },
       ],
     },
   },

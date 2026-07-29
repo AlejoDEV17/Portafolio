@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import {
   ArrowLeft,
@@ -11,6 +11,8 @@ import {
   Cpu,
   Database,
   GitBranch,
+  Pause,
+  Play,
   Workflow,
 } from "lucide-react";
 import { projects } from "@/data/portfolio";
@@ -21,6 +23,8 @@ const projectIcons = [Workflow, GitBranch, Database, Cpu, Workflow, CheckCircle2
 export function Projects() {
   const [active, setActive] = useState(0);
   const [galleryIndex, setGalleryIndex] = useState(0);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const project = projects[active];
   const Icon = projectIcons[active];
 
@@ -32,6 +36,30 @@ export function Projects() {
   const selectProject = (index: number) => {
     setGalleryIndex(0);
     setActive(index);
+  };
+
+  const moveGallery = (direction: number) => {
+    if (project.media?.type !== "gallery") return;
+    setGalleryIndex(
+      (current) =>
+        (current + direction + project.media.images.length) %
+        project.media.images.length,
+    );
+  };
+
+  const toggleVideo = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      try {
+        await video.play();
+      } catch {
+        setIsVideoPlaying(false);
+      }
+    } else {
+      video.pause();
+    }
   };
 
   return (
@@ -89,49 +117,59 @@ export function Projects() {
               </div>
 
               {project.media?.type === "video" ? (
-                <div className="project-proof">
+                <div className="project-proof project-video">
                   <div className="project-proof__header">
-                    <span>CASE STUDY / {project.index}</span>
-                    <span>DATOS PROTEGIDOS</span>
+                    <span>VIDEO DEMO / {project.index}</span>
+                    <span>CAPTURA REAL</span>
                   </div>
                   <div className="project-proof__media">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="metadata"
-                      poster={project.media.poster}
-                      aria-label={`Demostración de ${project.title}`}
-                    >
-                      <source src={project.media.video} type="video/mp4" />
-                    </video>
+                    <div className="project-media-frame">
+                      <video
+                        ref={videoRef}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        poster={project.media.poster}
+                        aria-label={`Demostración de ${project.title}`}
+                        onPlay={() => setIsVideoPlaying(true)}
+                        onPause={() => setIsVideoPlaying(false)}
+                      >
+                        <source src={project.media.video} type="video/mp4" />
+                      </video>
+                    </div>
                     <div className="project-proof__overlay">
                       <span>
                         <i />
-                        RPA / CAPTURA REAL
+                        RPA / EN EJECUCIÓN
                       </span>
                       <span>{project.media.duration}</span>
                     </div>
+                    <button
+                      className="project-proof__playback"
+                      type="button"
+                      onClick={toggleVideo}
+                      aria-label={
+                        isVideoPlaying
+                          ? "Pausar demostración"
+                          : "Reproducir demostración"
+                      }
+                    >
+                      {isVideoPlaying ? <Pause /> : <Play />}
+                      <span>
+                        {isVideoPlaying ? "PAUSAR DEMO" : "REPRODUCIR DEMO"}
+                      </span>
+                    </button>
                   </div>
-                  <div className="project-proof__status">
-                    <div>
-                      <span>FLUJO AUTOMATIZADO</span>
-                      <p>
-                        La demostración fue editada y anonimizada para proteger
-                        información médica y de facturación.
-                      </p>
-                    </div>
-                    <ol>
-                      {["Esculapio", "Respuesta", "PDF", "Drive"].map(
-                        (stage, index) => (
-                          <li key={stage}>
-                            <span>0{index + 1}</span>
-                            <strong>{stage}</strong>
-                          </li>
-                        ),
-                      )}
-                    </ol>
+                  <div className="project-proof__facts">
+                    {project.media.facts.map((fact, index) => (
+                      <div key={fact.label}>
+                        <small>0{index + 1}</small>
+                        <span>{fact.label}</span>
+                        <strong>{fact.value}</strong>
+                      </div>
+                    ))}
                   </div>
                 </div>
               ) : project.media?.type === "gallery" ? (
@@ -141,17 +179,19 @@ export function Projects() {
                     <span>CAPTURAS REALES</span>
                   </div>
                   <div className="project-gallery__viewport">
-                    <AnimatePresence mode="wait">
-                      <motion.img
-                        key={project.media.images[galleryIndex].src}
-                        src={project.media.images[galleryIndex].src}
-                        alt={project.media.images[galleryIndex].alt}
-                        initial={{ opacity: 0, scale: 1.015 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </AnimatePresence>
+                    <div className="project-media-frame">
+                      <AnimatePresence mode="wait">
+                        <motion.img
+                          key={project.media.images[galleryIndex].src}
+                          src={project.media.images[galleryIndex].src}
+                          alt={project.media.images[galleryIndex].alt}
+                          initial={{ opacity: 0, scale: 1.015 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </AnimatePresence>
+                    </div>
                     <div className="project-proof__overlay">
                       <span>
                         <i />
@@ -160,6 +200,22 @@ export function Projects() {
                       <span>
                         0{galleryIndex + 1} / 0{project.media.images.length}
                       </span>
+                    </div>
+                    <div className="project-gallery__arrows">
+                      <button
+                        type="button"
+                        onClick={() => moveGallery(-1)}
+                        aria-label="Captura anterior"
+                      >
+                        <ArrowLeft />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => moveGallery(1)}
+                        aria-label="Captura siguiente"
+                      >
+                        <ArrowRight />
+                      </button>
                     </div>
                   </div>
                   <div className="project-gallery__rail">
@@ -183,6 +239,15 @@ export function Projects() {
                           {image.label}
                         </span>
                       </button>
+                    ))}
+                  </div>
+                  <div className="project-proof__facts">
+                    {project.media.facts.map((fact, index) => (
+                      <div key={fact.label}>
+                        <small>0{index + 1}</small>
+                        <span>{fact.label}</span>
+                        <strong>{fact.value}</strong>
+                      </div>
                     ))}
                   </div>
                 </div>
