@@ -18,7 +18,7 @@ export function Profile() {
           <div className="profile__portrait" data-reveal>
             <div className="profile__image-frame">
               <Image
-                src="/alejandro.webp"
+                src="/alejandro.jpeg"
                 alt="Retrato profesional de Alejandro Lozano Restrepo"
                 fill
                 sizes="(max-width: 768px) 86vw, 36vw"
