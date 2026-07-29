@@ -100,11 +100,18 @@ img {
   color: var(--paper);
 }
 
+.loader__identity {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: center;
+  gap: 24px;
+  margin: auto 0;
+}
+
 .loader__word {
   display: flex;
-  align-self: center;
   overflow: hidden;
-  margin: auto 0;
   font-family: var(--font-display), sans-serif;
   font-size: clamp(3rem, 14vw, 13rem);
   font-weight: 800;
@@ -114,6 +121,26 @@ img {
 
 .loader__word span {
   display: inline-block;
+}
+
+.loader__role {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(0.62rem, 0.8vw, 0.78rem);
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.loader__role::before,
+.loader__role::after {
+  content: "";
+  display: block;
+  width: clamp(48px, 11vw, 160px);
+  height: 1px;
+  background: var(--line-strong);
 }
 
 .loader__bar {

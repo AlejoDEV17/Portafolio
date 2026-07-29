@@ -23,21 +23,31 @@ export function LoadingScreen() {
           exit={{ opacity: 0, transition: { duration: 0.45 } }}
           aria-hidden="true"
         >
-          <div className="loader__word" aria-label="Alejandro">
-            {"ALEJANDRO".split("").map((letter, index) => (
-              <motion.span
-                key={`${letter}-${index}`}
-                initial={{ y: "110%" }}
-                animate={{ y: 0 }}
-                transition={{
-                  duration: 0.65,
-                  delay: 0.12 + index * 0.045,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-              >
-                {letter}
-              </motion.span>
-            ))}
+          <div className="loader__identity">
+            <div className="loader__word" aria-label="Alejandro">
+              {"ALEJANDRO".split("").map((letter, index) => (
+                <motion.span
+                  key={`${letter}-${index}`}
+                  initial={{ y: "110%" }}
+                  animate={{ y: 0 }}
+                  transition={{
+                    duration: 0.65,
+                    delay: 0.12 + index * 0.045,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  {letter}
+                </motion.span>
+              ))}
+            </div>
+            <motion.span
+              className="loader__role"
+              initial={{ opacity: 0, letterSpacing: "0.5em" }}
+              animate={{ opacity: 1, letterSpacing: "0.28em" }}
+              transition={{ duration: 0.7, delay: 0.55 }}
+            >
+              DEVELOPER
+            </motion.span>
           </div>
           <motion.div
             className="loader__bar"
