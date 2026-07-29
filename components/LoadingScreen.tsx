@@ -23,10 +23,6 @@ export function LoadingScreen() {
           exit={{ opacity: 0, transition: { duration: 0.45 } }}
           aria-hidden="true"
         >
-          <div className="loader__top">
-            <span>AL / SYSTEM</span>
-            <span>BOOTING</span>
-          </div>
           <div className="loader__word" aria-label="Alejandro">
             {"ALEJANDRO".split("").map((letter, index) => (
               <motion.span
