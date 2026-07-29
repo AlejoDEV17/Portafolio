@@ -20,21 +20,34 @@ import { SectionHeading } from "@/components/SectionHeading";
 
 const projectIcons = [Workflow, GitBranch, Database, Cpu, Workflow, CheckCircle2];
 
+const formatVideoTime = (seconds: number) => {
+  const safeSeconds = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
+  const minutes = Math.floor(safeSeconds / 60);
+  const remainingSeconds = Math.floor(safeSeconds % 60);
+
+  return `${minutes.toString().padStart(2, "0")}:${remainingSeconds
+    .toString()
+    .padStart(2, "0")}`;
+};
+
 export function Projects() {
   const [active, setActive] = useState(0);
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [currentVideoTime, setCurrentVideoTime] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const project = projects[active];
   const Icon = projectIcons[active];
 
   const move = (direction: number) => {
     setGalleryIndex(0);
+    setCurrentVideoTime(0);
     setActive((current) => (current + direction + projects.length) % projects.length);
   };
 
   const selectProject = (index: number) => {
     setGalleryIndex(0);
+    setCurrentVideoTime(0);
     setActive(index);
   };
 
@@ -135,6 +148,11 @@ export function Projects() {
                         aria-label={`Demostración de ${project.title}`}
                         onPlay={() => setIsVideoPlaying(true)}
                         onPause={() => setIsVideoPlaying(false)}
+                        onTimeUpdate={(event) =>
+                          setCurrentVideoTime(
+                            Math.floor(event.currentTarget.currentTime),
+                          )
+                        }
                       >
                         <source src={project.media.video} type="video/mp4" />
                       </video>
@@ -144,7 +162,10 @@ export function Projects() {
                         <i />
                         RPA / EN EJECUCIÓN
                       </span>
-                      <span>{project.media.duration}</span>
+                      <span>
+                        {formatVideoTime(currentVideoTime)} /{" "}
+                        {project.media.duration}
+                      </span>
                     </div>
                     <button
                       className="project-proof__playback"
