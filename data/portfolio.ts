@@ -9,7 +9,7 @@ export type Project = {
   role: string;
   stack: string[];
   featured?: boolean;
-  accent: "acid" | "pink" | "blue";
+  accent: "cyan" | "steel" | "blue";
 };
 
 export const profile = {
@@ -117,44 +117,69 @@ export const capabilities = [
 
 export const experience = [
   {
-    company: "Julaje S.A.S. / Red ValleSalud",
-    role: "Analista de Sistemas y Desarrollador de Software",
-    period: "Abr. 2025 — Actualidad",
+    company: "Julaje S.A.S. / Valle Salud I.P.S.",
+    role: "Analista de Sistemas y Desarrollo de Software",
+    period: "28 abr. 2025 — Actualidad",
     summary:
-      "Diseño y desarrollo soluciones que digitalizan procesos internos, conectan plataformas y mejoran la operación de equipos administrativos.",
+      "Tareas y responsabilidades registradas en la hoja de vida:",
     responsibilities: [
-      "Desarrollo de aplicaciones empresariales en Zoho Creator y Deluge.",
-      "Automatización con Python y Microsoft Power Automate.",
-      "Integración de SharePoint, Outlook, Excel, PostgreSQL y servicios REST.",
-      "Diseño de trazabilidad, reportes e interfaces internas.",
-      "Pruebas funcionales, documentación técnica y mantenimiento continuo.",
+      "Desarrollo de aplicaciones utilizando Zoho Creator.",
+      "Implementación de soluciones bajo orientación a objetos (OOP).",
+      "Diseño y mantenimiento de módulos personalizados para gestión de procesos internos.",
+      "Integración de sistemas y automatización de flujos de trabajo.",
+      "Pruebas funcionales y documentación técnica.",
+      "Colaboración con equipos multidisciplinarios para optimizar la eficiencia operativa.",
+      "Implementación de sistemas de trazabilidad y control de versiones para seguimiento de estados y eventos de procesos internos.",
+      "Optimización de interfaces y reportes con Deluge, HTML y CSS, mejorando la experiencia del usuario interno.",
+      "Colaboración con áreas de gestión humana, contabilidad y dirección administrativa para digitalizar y automatizar tareas manuales.",
+      "Documentación técnica, pruebas funcionales y mantenimiento continuo de las soluciones desplegadas.",
+      "Manejo de bases de datos PostgreSQL.",
+      "JavaScript.",
+      "Python (OOP).",
+      "Diseño, creación y mantenimiento de flujos automatizados mediante Microsoft Power Automate para optimizar procesos administrativos y operativos.",
+      "Integración de Microsoft Power Automate con SharePoint Online, Excel, Outlook y demás herramientas de Microsoft 365.",
     ],
     stack: [
-      "Python",
       "Zoho Creator",
       "Deluge",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Python (OOP)",
       "Power Automate",
+      "SharePoint Online",
+      "Excel",
+      "Outlook",
+      "Microsoft 365",
       "PostgreSQL",
-      "REST APIs",
-      "Docker",
-      "Git",
-      "AI Agents",
+      "Control de versiones",
     ],
   },
   {
     company: "CODESA S.A.S.",
-    role: "Analista Funcional / Analista de Calidad de Software",
+    role: "Analista Funcional (QA)",
     period: "Jul. 2023 — Mar. 2025",
     summary:
-      "Aseguré la calidad de flujos funcionales mediante pruebas, validación de datos, automatización y documentación de incidencias.",
+      "Funciones y responsabilidades registradas en la hoja de vida:",
     responsibilities: [
-      "Diseño y ejecución de pruebas funcionales y automatizadas.",
-      "Consultas SQL y Oracle para validación y auditoría de información.",
-      "Documentación de evidencias, incidencias y casos de prueba.",
-      "Seguimiento del ciclo de calidad con Jira y equipos de desarrollo.",
+      "Manejo de bases de datos SQL y Oracle.",
+      "Implementación de procesos de automatización QA mediante Eclipse IDE, creando y ejecutando scripts de prueba para validar funcionalidades y flujos del sistema.",
+      "Diseño y desarrollo de queries SQL para realizar validaciones, auditorías de información y soporte en la integración de sistemas.",
+      "Documentación de los resultados de las pruebas, registrando incidencias, evidencias y reportes de validación para el control de calidad del software.",
       "Trabajo bajo metodologías ágiles Scrum.",
+      "Experiencia en desarrollo y aseguramiento de la calidad de software, utilizando herramientas de gestión como Jira para el seguimiento de incidencias, tareas y control de versiones.",
+      "Trabajo en equipo con el área de desarrollo.",
     ],
-    stack: ["QA", "Selenium", "SQL", "Oracle", "Jira", "Eclipse", "Scrum"],
+    stack: [
+      "QA",
+      "Eclipse IDE",
+      "Automatización de pruebas",
+      "SQL",
+      "Oracle",
+      "Jira",
+      "Scrum",
+      "Control de versiones",
+    ],
   },
 ];
 
@@ -173,7 +198,7 @@ export const projects: Project[] = [
     role: "Análisis, desarrollo e integración",
     stack: ["Python", "Power Automate", "REST APIs", "PostgreSQL"],
     featured: true,
-    accent: "acid",
+    accent: "cyan",
   },
   {
     id: "evaluation-platform",
@@ -188,7 +213,7 @@ export const projects: Project[] = [
       "Información centralizada, validaciones consistentes y mayor trazabilidad.",
     role: "Desarrollo full-cycle",
     stack: ["Zoho Creator", "Deluge", "REST APIs", "Bases de datos"],
-    accent: "pink",
+    accent: "steel",
   },
   {
     id: "esculapio",
@@ -218,7 +243,7 @@ export const projects: Project[] = [
       "Seguimiento más claro y datos de formación conectados.",
     role: "Automatización e integración",
     stack: ["Moodle", "APIs", "Python", "Zoho Creator"],
-    accent: "acid",
+    accent: "cyan",
   },
   {
     id: "microsoft-flows",
@@ -233,7 +258,7 @@ export const projects: Project[] = [
       "Procesos conectados y seguimiento operativo más oportuno.",
     role: "Diseño e implementación",
     stack: ["Power Automate", "SharePoint", "Outlook", "Excel"],
-    accent: "pink",
+    accent: "steel",
   },
   {
     id: "qa-automation",

@@ -52,9 +52,9 @@ function DataCore() {
         <mesh ref={inner}>
           <icosahedronGeometry args={[1.36, 2]} />
           <meshPhysicalMaterial
-            color="#d7ff3f"
-            emissive="#7e981b"
-            emissiveIntensity={0.45}
+            color="#58aeca"
+            emissive="#245a70"
+            emissiveIntensity={0.38}
             roughness={0.2}
             metalness={0.25}
             wireframe
@@ -64,11 +64,11 @@ function DataCore() {
         </mesh>
         <mesh rotation={[1.1, 0.2, 0.5]}>
           <torusGeometry args={[2.05, 0.012, 8, 180]} />
-          <meshBasicMaterial color="#ff2ba6" transparent opacity={0.8} />
+          <meshBasicMaterial color="#7186b3" transparent opacity={0.66} />
         </mesh>
         <mesh rotation={[0.25, 1.15, 0.1]}>
           <torusGeometry args={[2.5, 0.007, 8, 200]} />
-          <meshBasicMaterial color="#718dff" transparent opacity={0.58} />
+          <meshBasicMaterial color="#4776bd" transparent opacity={0.52} />
         </mesh>
         <mesh rotation={[-0.45, 0.2, 1.2]}>
           <torusGeometry args={[1.72, 0.006, 8, 160]} />
@@ -82,7 +82,7 @@ function DataCore() {
             [1.7, 0.7, 0.2],
             [2.9, 1.5, -0.5],
           ]}
-          color="#d7ff3f"
+          color="#58aeca"
           transparent
           opacity={0.32}
           lineWidth={0.6}
@@ -111,8 +111,8 @@ export default function HeroScene() {
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       >
         <ambientLight intensity={0.6} />
-        <pointLight position={[4, 4, 4]} color="#d7ff3f" intensity={15} />
-        <pointLight position={[-4, -2, 3]} color="#ff2ba6" intensity={10} />
+        <pointLight position={[4, 4, 4]} color="#58aeca" intensity={11} />
+        <pointLight position={[-4, -2, 3]} color="#4776bd" intensity={7} />
         <DataCore />
       </Canvas>
     </div>

@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #070708;
-  --ink-soft: #0d0d0f;
-  --panel: #121216;
-  --paper: #f4f2eb;
-  --muted: #a6a49d;
-  --line: rgba(244, 242, 235, 0.16);
-  --line-strong: rgba(244, 242, 235, 0.28);
-  --acid: #d7ff3f;
-  --pink: #ff2ba6;
-  --blue: #718dff;
+  --ink: #05080d;
+  --ink-soft: #09111b;
+  --panel: #0d1723;
+  --paper: #e8edf2;
+  --muted: #8fa0b2;
+  --line: rgba(151, 185, 214, 0.15);
+  --line-strong: rgba(151, 185, 214, 0.28);
+  --acid: #58aeca;
+  --pink: #7186b3;
+  --blue: #4776bd;
   --container: min(1380px, calc(100vw - 64px));
   --header-height: 76px;
 }
@@ -96,8 +96,8 @@ img {
   flex-direction: column;
   justify-content: space-between;
   padding: 30px;
-  background: var(--acid);
-  color: var(--ink);
+  background: var(--ink-soft);
+  color: var(--paper);
 }
 
 .loader__top {
@@ -127,7 +127,7 @@ img {
 .loader__bar {
   width: 100%;
   height: 3px;
-  background: var(--ink);
+  background: var(--acid);
   transform-origin: left;
 }
 
@@ -307,7 +307,7 @@ img {
   align-items: flex-end;
   border-bottom: 1px solid var(--line);
   background:
-    radial-gradient(circle at 74% 44%, rgba(113, 141, 255, 0.1), transparent 32%),
+    radial-gradient(circle at 74% 44%, rgba(71, 118, 189, 0.13), transparent 32%),
     var(--ink);
 }
 
@@ -339,13 +339,13 @@ img {
   width: 59vw;
   height: 88vh;
   pointer-events: none;
-  filter: drop-shadow(0 0 50px rgba(215, 255, 63, 0.08));
+  filter: drop-shadow(0 0 50px rgba(88, 174, 202, 0.1));
 }
 
 .hero-scene--fallback {
   background: radial-gradient(
     circle,
-    rgba(215, 255, 63, 0.1),
+    rgba(88, 174, 202, 0.11),
     transparent 54%
   );
 }
@@ -776,7 +776,7 @@ img {
 .technology {
   min-height: 100vh;
   overflow: hidden;
-  background: #0a0a0c;
+  background: #07101a;
 }
 
 .technology__orb {
@@ -785,20 +785,20 @@ img {
   right: -11vw;
   width: 38vw;
   aspect-ratio: 1;
-  border: 1px solid rgba(215, 255, 63, 0.22);
+  border: 1px solid rgba(88, 174, 202, 0.2);
   border-radius: 50%;
 }
 
 .technology__orb span {
   position: absolute;
   inset: 11%;
-  border: 1px solid rgba(255, 43, 166, 0.2);
+  border: 1px solid rgba(113, 134, 179, 0.18);
   border-radius: 50%;
 }
 
 .technology__orb span:last-child {
   inset: 26%;
-  border-color: rgba(113, 141, 255, 0.22);
+  border-color: rgba(71, 118, 189, 0.22);
 }
 
 .technology__system {
@@ -896,7 +896,7 @@ img {
   top: 0;
   width: 1px;
   height: 50%;
-  background: linear-gradient(to top, rgba(215, 255, 63, 0.5), transparent);
+  background: linear-gradient(to top, rgba(88, 174, 202, 0.45), transparent);
   transform-origin: bottom;
   animation: radar 9s linear infinite;
 }
@@ -1101,7 +1101,7 @@ img {
   top: 0.65em;
   width: 5px;
   height: 5px;
-  background: var(--pink);
+  background: var(--blue);
 }
 
 .tag-list {
@@ -1123,16 +1123,20 @@ img {
 
 .projects {
   overflow: hidden;
-  background: #0a0a0c;
+  background: #07101a;
 }
 
 .project-stage {
   --project-accent: var(--acid);
   border: 1px solid var(--line-strong);
-  background: #0d0d10;
+  background: #0a1420;
 }
 
-.project-stage--pink {
+.project-stage--cyan {
+  --project-accent: var(--acid);
+}
+
+.project-stage--steel {
   --project-accent: var(--pink);
 }
 
@@ -1236,7 +1240,7 @@ img {
   gap: 7px;
   padding: 16px 18px;
   border-bottom: 1px solid var(--line);
-  background: #0d0d10;
+  background: #0a1420;
   font-family: var(--font-mono), monospace;
   font-size: 9px;
   color: var(--muted);
@@ -1347,7 +1351,7 @@ img {
   gap: 12px;
   padding: 18px;
   border-top: 1px solid var(--line);
-  background: #0d0d10;
+  background: #0a1420;
   font-family: var(--font-mono), monospace;
   font-size: 8px;
   color: var(--muted);
@@ -1418,7 +1422,7 @@ img {
 
 .education {
   padding: 130px 0;
-  background: var(--acid);
+  background: #dce5ed;
   color: var(--ink);
 }
 
@@ -1485,15 +1489,15 @@ img {
   place-items: center;
   border: 1px solid var(--ink);
   border-radius: 50%;
-  background: var(--acid);
+  background: #dce5ed;
 }
 
 .education__marker span {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--pink);
-  box-shadow: 0 0 0 5px rgba(255, 43, 166, 0.18);
+  background: var(--blue);
+  box-shadow: 0 0 0 5px rgba(71, 118, 189, 0.14);
 }
 
 .education__track article span {
@@ -1530,7 +1534,7 @@ img {
   width: 880px;
   height: 500px;
   border-radius: 50%;
-  background: rgba(255, 43, 166, 0.12);
+  background: rgba(71, 118, 189, 0.13);
   filter: blur(90px);
   transform: translateX(-50%);
 }
