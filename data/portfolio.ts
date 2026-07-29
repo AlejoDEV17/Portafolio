@@ -10,6 +10,11 @@ export type Project = {
   stack: string[];
   featured?: boolean;
   accent: "cyan" | "steel" | "blue";
+  media?: {
+    video: string;
+    poster: string;
+    duration: string;
+  };
 };
 
 export const profile = {
@@ -220,17 +225,22 @@ export const projects: Project[] = [
   {
     id: "esculapio",
     index: "03",
-    label: "Integración de sistemas",
+    label: "RPA / Automatización de glosas",
     title: "Integración Esculapio",
     problem:
-      "Necesidad de consultar información externa para completar procesos internos.",
+      "Responder glosas manualmente exige recorrer el sistema, actualizar la respuesta y organizar cada soporte generado.",
     solution:
-      "Integración REST con transformación de JSON, validación de respuestas y consumo desde la aplicación interna.",
+      "Automatización RPA para responder glosas en DbMédico/Esculapio, generar los informes PDF y guardarlos en Google Drive de escritorio según empresa, entidad, estado y factura.",
     result:
-      "Consulta conectada al flujo de trabajo y menos pasos manuales.",
-    role: "Integración y validación",
-    stack: ["REST API", "JSON", "Zoho Creator", "Deluge", "Postman"],
+      "Un flujo estandarizado que ejecuta la respuesta, produce el soporte y mantiene los archivos clasificados.",
+    role: "Análisis, desarrollo y automatización RPA",
+    stack: ["Python", "RPA", "DbMédico", "Esculapio", "PDF", "Google Drive"],
     accent: "blue",
+    media: {
+      video: "/projects/esculapio-rpa.mp4",
+      poster: "/projects/esculapio-rpa-poster.jpg",
+      duration: "00:34",
+    },
   },
   {
     id: "corporate-campus",
