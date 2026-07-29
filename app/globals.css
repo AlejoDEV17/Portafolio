@@ -602,18 +602,18 @@ img {
 
 .profile__layout {
   display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: 6vw;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.8fr);
+  gap: 5vw;
   align-items: start;
 }
 
 .profile__portrait {
-  padding-left: 6vw;
+  padding-left: 3vw;
 }
 
 .profile__image-frame {
   position: relative;
-  width: min(100%, 430px);
+  width: min(100%, 360px);
   aspect-ratio: 0.88;
   overflow: hidden;
   background: #d8d7d2;
@@ -648,7 +648,7 @@ img {
 }
 
 .profile__location {
-  width: min(100%, 430px);
+  width: min(100%, 360px);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -670,13 +670,13 @@ img {
 }
 
 .profile__lead {
-  max-width: 830px;
+  max-width: 760px;
   margin: 0;
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(1.55rem, 2.7vw, 3rem);
+  font-size: clamp(1.35rem, 1.9vw, 2.15rem);
   font-weight: 570;
-  line-height: 1.25;
-  letter-spacing: -0.035em;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
 }
 
 .profile__path {
@@ -1915,17 +1915,18 @@ img {
   }
 
   .profile__image-frame {
-    width: 100%;
-    max-height: 490px;
+    width: min(100%, 300px);
+    max-height: 420px;
     aspect-ratio: 0.9;
   }
 
   .profile__location {
-    width: 100%;
+    width: min(100%, 300px);
   }
 
   .profile__lead {
-    font-size: 1.55rem;
+    font-size: 1.3rem;
+    line-height: 1.45;
   }
 
   .profile__path {
