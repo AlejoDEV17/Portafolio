@@ -24,12 +24,33 @@ npm run dev
 
 Abre `http://localhost:3000`.
 
+### Ver desde otro dispositivo en la misma red Wi-Fi
+
+Inicia el servidor escuchando en la red local:
+
+```bash
+npm run dev:lan
+```
+
+Luego abre desde el celular u otro computador:
+
+```text
+http://IP-DE-TU-PC:3000
+```
+
+En Windows puedes consultar la IP con `ipconfig`. Ambos dispositivos deben
+estar conectados a la misma red y Windows debe permitir Node.js en redes
+privadas. Para probar el bundle de producción en la red local, ejecuta primero
+`npm run build` y después `npm run start:lan`.
+
 ## Comandos
 
 ```bash
 npm run lint
 npm run build
 npm run build:next
+npm run dev:lan
+npm run start:lan
 npm start
 ```
 
