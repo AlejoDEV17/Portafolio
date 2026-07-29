@@ -13,6 +13,7 @@ import {
   GitBranch,
   Pause,
   Play,
+  ShieldCheck,
   Workflow,
 } from "lucide-react";
 import { projects } from "@/data/portfolio";
@@ -133,7 +134,7 @@ export function Projects() {
                 <div className="project-proof project-video">
                   <div className="project-proof__header">
                     <span>VIDEO DEMO / {project.index}</span>
-                    <span>CAPTURA REAL</span>
+                    <span>DATOS PROTEGIDOS</span>
                   </div>
                   <div className="project-proof__media">
                     <div className="project-media-frame">
@@ -182,6 +183,14 @@ export function Projects() {
                         {isVideoPlaying ? "PAUSAR DEMO" : "REPRODUCIR DEMO"}
                       </span>
                     </button>
+                  </div>
+                  <div className="project-proof__privacy">
+                    <ShieldCheck aria-hidden="true" />
+                    <p>
+                      <strong>Protección de datos:</strong> Algunas áreas fueron
+                      difuminadas para proteger información médica, personal y
+                      de facturación.
+                    </p>
                   </div>
                   <div className="project-proof__facts">
                     {project.media.facts.map((fact, index) => (
