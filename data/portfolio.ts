@@ -120,8 +120,6 @@ export const experience = [
     company: "Julaje S.A.S. / Valle Salud I.P.S.",
     role: "Analista de Sistemas y Desarrollo de Software",
     period: "28 abr. 2025 — Actualidad",
-    summary:
-      "Tareas y responsabilidades registradas en la hoja de vida:",
     responsibilities: [
       "Desarrollo de aplicaciones utilizando Zoho Creator.",
       "Implementación de soluciones bajo orientación a objetos (OOP).",
@@ -159,13 +157,17 @@ export const experience = [
     company: "CODESA S.A.S.",
     role: "Analista Funcional (QA)",
     period: "Jul. 2023 — Mar. 2025",
-    summary:
-      "Funciones y responsabilidades registradas en la hoja de vida:",
     responsibilities: [
       "Manejo de bases de datos SQL y Oracle.",
       "Implementación de procesos de automatización QA mediante Eclipse IDE, creando y ejecutando scripts de prueba para validar funcionalidades y flujos del sistema.",
       "Diseño y desarrollo de queries SQL para realizar validaciones, auditorías de información y soporte en la integración de sistemas.",
       "Documentación de los resultados de las pruebas, registrando incidencias, evidencias y reportes de validación para el control de calidad del software.",
+      "Diseño, elaboración y ejecución de casos de prueba funcionales, de integración, regresión y humo (Smoke Testing).",
+      "Validación de requerimientos funcionales y criterios de aceptación.",
+      "Análisis de historias de usuario y documentación funcional.",
+      "Identificación, documentación y seguimiento de defectos mediante Jira.",
+      "Validación de flujos críticos del negocio antes de despliegues a producción.",
+      "Elaboración de evidencias y reportes de pruebas.",
       "Trabajo bajo metodologías ágiles Scrum.",
       "Experiencia en desarrollo y aseguramiento de la calidad de software, utilizando herramientas de gestión como Jira para el seguimiento de incidencias, tareas y control de versiones.",
       "Trabajo en equipo con el área de desarrollo.",

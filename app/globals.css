@@ -1070,17 +1070,9 @@ img {
   padding: 0 70px 40px 80px;
 }
 
-.experience__details p {
-  max-width: 720px;
-  margin: 0 0 22px;
-  font-size: 1.05rem;
-  line-height: 1.65;
-}
-
 .experience__details ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px 30px;
+  columns: 2;
+  column-gap: 38px;
   margin: 0 0 28px;
   padding: 0;
   list-style: none;
@@ -1088,6 +1080,8 @@ img {
 
 .experience__details li {
   position: relative;
+  break-inside: avoid;
+  margin-bottom: 12px;
   padding-left: 16px;
   color: #595852;
   font-size: 0.9rem;
@@ -2060,7 +2054,7 @@ img {
   }
 
   .experience__details ul {
-    grid-template-columns: 1fr;
+    columns: 1;
   }
 
   .project-stage__content {

@@ -54,7 +54,6 @@ export function Experience() {
                       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <div>
-                        <p>{item.summary}</p>
                         <ul>
                           {item.responsibilities.map((responsibility) => (
                             <li key={responsibility}>{responsibility}</li>
