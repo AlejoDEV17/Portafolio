@@ -726,7 +726,6 @@ img {
 
 .profile__path > div:last-child {
   border-right: 0;
-  background: var(--acid);
 }
 
 .profile__path span {
@@ -747,10 +746,6 @@ img {
   z-index: 2;
   padding: 3px;
   background: var(--paper);
-}
-
-.profile__path > div:nth-last-child(2) svg {
-  background: var(--acid);
 }
 
 .impact-grid {
