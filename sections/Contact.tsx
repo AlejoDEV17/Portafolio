@@ -14,6 +14,18 @@ import { profile } from "@/data/portfolio";
 
 type FormState = "idle" | "loading" | "sent" | "error";
 
+const gmailComposeUrl = (subject = "", body = "") => {
+  const url = new URL("https://mail.google.com/mail/");
+  url.searchParams.set("view", "cm");
+  url.searchParams.set("fs", "1");
+  url.searchParams.set("to", profile.email);
+
+  if (subject) url.searchParams.set("su", subject);
+  if (body) url.searchParams.set("body", body);
+
+  return url.toString();
+};
+
 export function Contact() {
   const [state, setState] = useState<FormState>("idle");
 
@@ -32,15 +44,13 @@ export function Contact() {
       return;
     }
 
-    const body = encodeURIComponent(
-      `Hola Alejandro,\n\n${message}\n\n— ${name}\n${email}`,
+    const body = `Hola Alejandro,\n\n${message}\n\n— ${name}\n${email}`;
+    window.open(
+      gmailComposeUrl(subject, body),
+      "_blank",
+      "noopener,noreferrer",
     );
-    const mailSubject = encodeURIComponent(subject);
-
-    window.setTimeout(() => {
-      window.location.href = `mailto:${profile.email}?subject=${mailSubject}&body=${body}`;
-      setState("sent");
-    }, 450);
+    setState("sent");
   };
 
   return (
@@ -57,7 +67,11 @@ export function Contact() {
 
         <div className="contact__layout">
           <div className="contact__details" data-reveal>
-            <a href={`mailto:${profile.email}`}>
+            <a
+              href={gmailComposeUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Mail />
               <span>
                 Correo
@@ -147,14 +161,14 @@ export function Contact() {
                 </>
               ) : (
                 <>
-                  Abrir correo
+                  Abrir Gmail
                   <ArrowUpRight />
                 </>
               )}
             </motion.button>
             <div className="contact__state" aria-live="polite">
               {state === "sent" &&
-                "Mensaje preparado. Revisa tu aplicación de correo para enviarlo."}
+                "Gmail abierto con el mensaje preparado para enviarlo."}
               {state === "error" &&
                 "Completa todos los campos para preparar el mensaje."}
             </div>

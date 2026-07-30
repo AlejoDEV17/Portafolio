@@ -79,7 +79,7 @@ La foto y el CV descargable están en `public/`.
 
 ## Formulario de contacto
 
-El formulario valida los campos y prepara un correo usando la aplicación de correo del visitante. Esto evita almacenar datos personales o depender de una clave de terceros. Si más adelante se desea envío directo, se puede conectar el formulario a un servicio transaccional desde una ruta segura del servidor.
+El formulario valida los campos y abre el redactor web de Gmail con el destinatario, asunto y mensaje preparados. Esto evita almacenar datos personales o depender de una clave de terceros. Si más adelante se desea envío directo, se puede conectar el formulario a un servicio transaccional desde una ruta segura del servidor.
 
 ## Accesibilidad y rendimiento
 
