@@ -90,12 +90,13 @@ export const capabilities = [
     title: "Automatización",
     description: "Flujos que reducen intervención manual y mejoran trazabilidad.",
     items: [
-      "RPA",
-      "Power Automate",
-      "Bots en Python",
-      "Playwright",
+      "Python",
       "Selenium",
-      "QA Automation",
+      "BeautifulSoup",
+      "Playwright",
+      "AutoHotkey",
+      "Power Automate",
+      "RPA",
     ],
   },
   {
