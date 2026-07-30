@@ -53,11 +53,13 @@ export function Projects() {
   };
 
   const moveGallery = (direction: number) => {
-    if (project.media?.type !== "gallery") return;
+    const media = project.media;
+    if (media?.type !== "gallery") return;
+    const imageCount = media.images.length;
+
     setGalleryIndex(
       (current) =>
-        (current + direction + project.media.images.length) %
-        project.media.images.length,
+        (current + direction + imageCount) % imageCount,
     );
   };
 

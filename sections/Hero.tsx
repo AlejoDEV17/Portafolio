@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
 import { profile } from "@/data/portfolio";
+import { assetPath } from "@/data/site";
 
 const HeroScene = dynamic(() => import("@/components/HeroScene"), {
   ssr: false,
@@ -83,7 +84,7 @@ export function Hero() {
               </a>
               <a
                 className="button button--ghost"
-                href="/hoja-de-vida-alejandro-lozano.pdf"
+                href={assetPath("/hoja-de-vida-alejandro-lozano.pdf")}
                 download
               >
                 Descargar CV

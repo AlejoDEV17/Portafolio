@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowDownRight, MapPin } from "lucide-react";
 import { impact, profile } from "@/data/portfolio";
+import { assetPath } from "@/data/site";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export function Profile() {
@@ -18,7 +19,7 @@ export function Profile() {
           <div className="profile__portrait" data-reveal>
             <div className="profile__image-frame">
               <Image
-                src="/alejandro.jpeg"
+                src={assetPath("/alejandro.jpeg")}
                 alt="Retrato profesional de Alejandro Lozano Restrepo"
                 fill
                 sizes="(max-width: 768px) 86vw, 36vw"

@@ -5,6 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { ScrollAnimations } from "@/components/ScrollAnimations";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { profile } from "@/data/portfolio";
+import { siteUrl } from "@/data/site";
 import "./globals.css";
 
 const geist = Geist({
@@ -26,9 +27,7 @@ const display = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    "https://alejandro-lozano-lab.calivallelozano.chatgpt.site",
-  ),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Alejandro Lozano | Software, Automatización e IA",
     template: "%s | Alejandro Lozano",
@@ -50,7 +49,7 @@ export const metadata: Metadata = {
   authors: [{ name: profile.name, url: profile.github }],
   creator: profile.name,
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
   },
   openGraph: {
     type: "profile",
@@ -58,16 +57,16 @@ export const metadata: Metadata = {
     title: "Alejandro Lozano — Software, Automatización e IA",
     description:
       "Diseño soluciones digitales, automatizo procesos y conecto sistemas.",
-    url: "/",
+    url: siteUrl,
     siteName: "Alejandro Lozano Portfolio",
-    images: [{ url: "/og.png", width: 1200, height: 630 }],
+    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Alejandro Lozano — Software, Automatización e IA",
     description:
       "Desarrollo de software, automatización, integraciones y soluciones con IA.",
-    images: ["/og.png"],
+    images: [`${siteUrl}/og.png`],
   },
   category: "technology",
 };

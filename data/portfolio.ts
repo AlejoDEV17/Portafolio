@@ -1,3 +1,5 @@
+import { assetPath } from "@/data/site";
+
 export type Project = {
   id: string;
   index: string;
@@ -256,8 +258,8 @@ export const projects: Project[] = [
     accent: "blue",
     media: {
       type: "video",
-      video: "/projects/esculapio-rpa.mp4",
-      poster: "/projects/esculapio-rpa-poster.jpg",
+      video: assetPath("/projects/esculapio-rpa.mp4"),
+      poster: assetPath("/projects/esculapio-rpa-poster.jpg"),
       duration: "00:34",
       facts: [
         { label: "Flujo RPA", value: "Esculapio" },
@@ -290,17 +292,17 @@ export const projects: Project[] = [
       type: "gallery",
       images: [
         {
-          src: "/projects/campus-acceso.png",
+          src: assetPath("/projects/campus-acceso.png"),
           label: "Acceso",
           alt: "Pantalla de acceso del Campus ValleSalud",
         },
         {
-          src: "/projects/campus-bienvenida.png",
+          src: assetPath("/projects/campus-bienvenida.png"),
           label: "Bienvenida",
           alt: "Mensaje de bienvenida del Campus ValleSalud",
         },
         {
-          src: "/projects/campus-cursos.png",
+          src: assetPath("/projects/campus-cursos.png"),
           label: "Cursos",
           alt: "Catálogo de cursos disponibles en el Campus ValleSalud",
         },
