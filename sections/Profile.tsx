@@ -24,12 +24,10 @@ export function Profile() {
                 sizes="(max-width: 768px) 86vw, 36vw"
                 priority
               />
-              <span className="profile__image-code">AL—017</span>
             </div>
             <div className="profile__location">
               <MapPin size={15} />
               {profile.location}
-              <span>UTC −05:00</span>
             </div>
           </div>
 

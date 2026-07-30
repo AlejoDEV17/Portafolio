@@ -661,19 +661,6 @@ img {
   transform: scale(1.01);
 }
 
-.profile__image-code {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  z-index: 2;
-  padding: 8px 10px;
-  background: var(--ink);
-  color: var(--acid);
-  font-family: var(--font-mono), monospace;
-  font-size: 9px;
-  letter-spacing: 0.15em;
-}
-
 .profile__location {
   width: min(100%, 360px);
   display: flex;
@@ -685,11 +672,6 @@ img {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-}
-
-.profile__location span {
-  margin-left: auto;
-  color: #6d6b65;
 }
 
 .profile__story {
