@@ -296,7 +296,7 @@ export const projects: Project[] = [
       type: "gallery",
       images: [
         {
-          src: assetPath("/projects/campus-acceso.png"),
+          src: assetPath("/projects/campus-acceso-protegido.png"),
           label: "Acceso",
           alt: "Pantalla de acceso del Campus ValleSalud",
         },
