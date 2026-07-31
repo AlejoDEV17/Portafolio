@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import {
   ArrowLeft,
@@ -10,9 +10,9 @@ import {
   CheckCircle2,
   Cpu,
   Database,
+  FileText,
+  Folder,
   GitBranch,
-  Pause,
-  Play,
   ShieldCheck,
   Workflow,
 } from "lucide-react";
@@ -20,35 +20,21 @@ import { projects } from "@/data/portfolio";
 import { SectionHeading } from "@/components/SectionHeading";
 
 const projectIcons = [Workflow, GitBranch, Database, Cpu, Workflow, CheckCircle2];
-
-const formatVideoTime = (seconds: number) => {
-  const safeSeconds = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
-  const minutes = Math.floor(safeSeconds / 60);
-  const remainingSeconds = Math.floor(safeSeconds % 60);
-
-  return `${minutes.toString().padStart(2, "0")}:${remainingSeconds
-    .toString()
-    .padStart(2, "0")}`;
-};
+const workflowIcons = [Database, Workflow, FileText, Folder];
 
 export function Projects() {
   const [active, setActive] = useState(0);
   const [galleryIndex, setGalleryIndex] = useState(0);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
-  const [currentVideoTime, setCurrentVideoTime] = useState(0);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const project = projects[active];
   const Icon = projectIcons[active];
 
   const move = (direction: number) => {
     setGalleryIndex(0);
-    setCurrentVideoTime(0);
     setActive((current) => (current + direction + projects.length) % projects.length);
   };
 
   const selectProject = (index: number) => {
     setGalleryIndex(0);
-    setCurrentVideoTime(0);
     setActive(index);
   };
 
@@ -61,21 +47,6 @@ export function Projects() {
       (current) =>
         (current + direction + imageCount) % imageCount,
     );
-  };
-
-  const toggleVideo = async () => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    if (video.paused) {
-      try {
-        await video.play();
-      } catch {
-        setIsVideoPlaying(false);
-      }
-    } else {
-      video.pause();
-    }
   };
 
   return (
@@ -132,67 +103,53 @@ export function Projects() {
                 </div>
               </div>
 
-              {project.media?.type === "video" ? (
-                <div className="project-proof project-video">
+              {project.media?.type === "workflow" ? (
+                <div className="project-proof project-workflow">
                   <div className="project-proof__header">
-                    <span>VIDEO DEMO / {project.index}</span>
-                    <span>DATOS PROTEGIDOS</span>
+                    <span>ARQUITECTURA DEL FLUJO / {project.index}</span>
+                    <span>VISTA SEGURA</span>
                   </div>
-                  <div className="project-proof__media">
-                    <div className="project-media-frame">
-                      <video
-                        ref={videoRef}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="metadata"
-                        poster={project.media.poster}
-                        aria-label={`Demostración de ${project.title}`}
-                        onPlay={() => setIsVideoPlaying(true)}
-                        onPause={() => setIsVideoPlaying(false)}
-                        onTimeUpdate={(event) =>
-                          setCurrentVideoTime(
-                            Math.floor(event.currentTarget.currentTime),
-                          )
-                        }
-                      >
-                        <source src={project.media.video} type="video/mp4" />
-                      </video>
+                  <div className="project-workflow__body">
+                    <div className="project-workflow__intro">
+                      <span>RPA / PROCESO DOCUMENTADO</span>
+                      <strong>De la glosa al soporte clasificado</strong>
                     </div>
-                    <div className="project-proof__overlay">
-                      <span>
-                        <i />
-                        RPA / EN EJECUCIÓN
-                      </span>
-                      <span>
-                        {formatVideoTime(currentVideoTime)} /{" "}
-                        {project.media.duration}
-                      </span>
-                    </div>
-                    <button
-                      className="project-proof__playback"
-                      type="button"
-                      onClick={toggleVideo}
-                      aria-label={
-                        isVideoPlaying
-                          ? "Pausar demostración"
-                          : "Reproducir demostración"
-                      }
+                    <div
+                      className="project-workflow__diagram"
+                      aria-label="Flujo automatizado de respuesta de glosas"
                     >
-                      {isVideoPlaying ? <Pause /> : <Play />}
-                      <span>
-                        {isVideoPlaying ? "PAUSAR DEMO" : "REPRODUCIR DEMO"}
-                      </span>
-                    </button>
+                      {project.media.steps.map((step, index, steps) => {
+                        const StepIcon = workflowIcons[index] ?? Workflow;
+
+                        return (
+                          <div className="project-workflow__step" key={step.title}>
+                            <div className="project-workflow__icon">
+                              <StepIcon aria-hidden="true" />
+                            </div>
+                            <small>0{index + 1} / {step.label}</small>
+                            <strong>{step.title}</strong>
+                            <p>{step.description}</p>
+                            {index < steps.length - 1 && (
+                              <span className="project-workflow__connector" aria-hidden="true">
+                                <i />
+                              </span>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div className="project-workflow__impact">
+                      <span>Impacto operativo</span>
+                      <strong>Horas de trabajo manual → minutos de ejecución</strong>
+                      <p>{project.media.impact}</p>
+                    </div>
                   </div>
-                  <div className="project-proof__privacy">
+                  <div className="project-workflow__notice">
                     <ShieldCheck aria-hidden="true" />
-                    <p>
-                      <strong>Protección de datos:</strong> Algunas áreas fueron
-                      difuminadas para proteger información médica, personal y
-                      de facturación.
-                    </p>
+                    <div>
+                      <strong>Demostración reservada por confidencialidad</strong>
+                      <p>{project.media.notice}</p>
+                    </div>
                   </div>
                   <div className="project-proof__facts">
                     {project.media.facts.map((fact, index) => (

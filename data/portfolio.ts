@@ -14,10 +14,14 @@ export type Project = {
   accent: "cyan" | "steel" | "blue";
   media?:
     | {
-        type: "video";
-        video: string;
-        poster: string;
-        duration: string;
+        type: "workflow";
+        steps: {
+          label: string;
+          title: string;
+          description: string;
+        }[];
+        impact: string;
+        notice: string;
         facts: {
           label: string;
           value: string;
@@ -256,19 +260,42 @@ export const projects: Project[] = [
     solution:
       "Automatización RPA para responder glosas en DbMédico/Esculapio, generar los informes PDF y guardarlos en Google Drive de escritorio según empresa, entidad, estado y factura.",
     result:
-      "Un flujo estandarizado que ejecuta la respuesta, produce el soporte y mantiene los archivos clasificados.",
+      "El proceso pasó de requerir horas de trabajo manual a resolverse en minutos, reduciendo tareas repetitivas para los analistas de glosas y manteniendo los soportes clasificados.",
     role: "Análisis, desarrollo y automatización RPA",
     stack: ["Python", "RPA", "DbMédico", "Esculapio", "PDF", "Google Drive"],
     accent: "blue",
     media: {
-      type: "video",
-      video: assetPath("/projects/esculapio-rpa.mp4"),
-      poster: assetPath("/projects/esculapio-rpa-poster.jpg"),
-      duration: "00:34",
+      type: "workflow",
+      steps: [
+        {
+          label: "Entrada",
+          title: "Glosa identificada",
+          description: "El flujo detecta y prepara el caso asignado.",
+        },
+        {
+          label: "Ejecución",
+          title: "Respuesta automatizada",
+          description: "El bot procesa la respuesta dentro del sistema.",
+        },
+        {
+          label: "Documento",
+          title: "Informe PDF",
+          description: "Se genera automáticamente el soporte del proceso.",
+        },
+        {
+          label: "Archivo",
+          title: "Drive clasificado",
+          description: "El resultado se organiza por empresa, entidad y factura.",
+        },
+      ],
+      impact:
+        "El bot reduce de horas a minutos la ejecución de tareas repetitivas y permite que los analistas de glosas concentren su tiempo en excepciones y casos que requieren revisión humana.",
+      notice:
+        "La demostración audiovisual no se publica porque el flujo opera sobre una aplicación interna y puede exponer información médica, personal, de facturación y lógica operativa. Este esquema presenta el alcance técnico respetando las políticas de confidencialidad y protección de datos.",
       facts: [
-        { label: "Flujo RPA", value: "Esculapio" },
-        { label: "Entrega", value: "PDF automático" },
-        { label: "Archivo", value: "Google Drive" },
+        { label: "Entrada", value: "Glosa" },
+        { label: "Proceso", value: "Respuesta + PDF" },
+        { label: "Impacto", value: "Horas → minutos" },
       ],
     },
   },
