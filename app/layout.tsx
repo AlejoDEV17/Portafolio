@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { Navigation } from "@/components/Navigation";
 import { ScrollAnimations } from "@/components/ScrollAnimations";
@@ -81,6 +82,10 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const cloudflareBeacon = JSON.stringify({
+    token: "af1b2dd818dd43578042b5bf308f9fa8",
+  });
+
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -119,6 +124,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
+        {process.env.NODE_ENV === "production" && (
+          <Script
+            id="cloudflare-web-analytics"
+            type="module"
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={cloudflareBeacon}
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   );
