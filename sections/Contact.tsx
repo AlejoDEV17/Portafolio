@@ -179,7 +179,7 @@ export function Contact() {
         <footer className="footer">
           <span>© 2026 ALEJANDRO LOZANO RESTREPO</span>
           <VisitorCounter />
-          <span>DISEÑADO COMO UN SISTEMA, NO COMO UNA PLANTILLA.</span>
+          <span>{"DISEÑADO CON EL <3"}</span>
           <a href="#inicio">VOLVER ARRIBA ↑</a>
         </footer>
       </div>
