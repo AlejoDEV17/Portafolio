@@ -179,7 +179,9 @@ export function Contact() {
         <footer className="footer">
           <span>© 2026 ALEJANDRO LOZANO RESTREPO</span>
           <VisitorCounter />
-          <span>{"DISEÑADO CON EL <3"}</span>
+          <span className="footer__made-with">
+            DISEÑADO CON EL <b aria-label="corazón">♥</b>
+          </span>
           <a href="#inicio">VOLVER ARRIBA ↑</a>
         </footer>
       </div>

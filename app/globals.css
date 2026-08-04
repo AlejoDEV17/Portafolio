@@ -2303,6 +2303,20 @@ img {
   color: var(--paper);
 }
 
+.footer__made-with {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.footer__made-with b {
+  color: var(--cyan);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(88, 177, 205, 0.68);
+}
+
 .visitor-counter {
   min-width: 190px;
   display: grid;
