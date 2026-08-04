@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "alejodev17-portfolio-counter",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-04",
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "VIEW_COUNTER",
+        "class_name": "ViewCounter"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["ViewCounter"]
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

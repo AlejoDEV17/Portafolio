@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
 
 const counterEndpoint =
-  "https://counterapi.com/api/alejodev17.github.io/view/portfolio";
-const sessionKey = "alejandro-portfolio-view-counted";
+  "https://alejodev17-portfolio-counter.alejandro-lozano-portfolio.workers.dev";
+const visitorKey = "alejandro-portfolio-visitor-counted-v1";
+const cachedViewsKey = "alejandro-portfolio-views-cache-v1";
 
 type CounterResponse = {
-  value?: number;
+  count?: number;
 };
 
 const formatViews = (value: number | null) => {
@@ -23,30 +24,39 @@ export function VisitorCounter() {
     const isLocal = ["localhost", "127.0.0.1"].includes(
       window.location.hostname,
     );
-    const alreadyCounted = window.sessionStorage.getItem(sessionKey) === "true";
+    const alreadyCounted = window.localStorage.getItem(visitorKey) === "true";
     const shouldIncrement = !isLocal && !alreadyCounted;
-    const url = new URL(counterEndpoint);
-
-    if (!shouldIncrement) url.searchParams.set("readOnly", "true");
+    const cachedViewsRaw = window.localStorage.getItem(cachedViewsKey);
+    const cachedViews =
+      cachedViewsRaw === null ? null : Number(cachedViewsRaw);
 
     const controller = new AbortController();
 
-    fetch(url, { cache: "no-store", signal: controller.signal })
+    fetch(counterEndpoint, {
+      method: shouldIncrement ? "POST" : "GET",
+      cache: "no-store",
+      signal: controller.signal,
+    })
       .then((response) => {
         if (!response.ok) throw new Error("Visitor counter unavailable");
         return response.json() as Promise<CounterResponse>;
       })
       .then((data) => {
-        if (typeof data.value !== "number") {
+        if (typeof data.count !== "number") {
           throw new Error("Invalid visitor counter response");
         }
 
-        setViews(data.value);
-        if (shouldIncrement) window.sessionStorage.setItem(sessionKey, "true");
+        setViews(data.count);
+        window.localStorage.setItem(cachedViewsKey, String(data.count));
+        if (shouldIncrement) window.localStorage.setItem(visitorKey, "true");
       })
       .catch((error: unknown) => {
         if (error instanceof DOMException && error.name === "AbortError") return;
-        setViews(0);
+        const hasValidCache =
+          cachedViews !== null &&
+          Number.isInteger(cachedViews) &&
+          cachedViews >= 0;
+        setViews(hasValidCache ? cachedViews : null);
       });
 
     return () => controller.abort();
