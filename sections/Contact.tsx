@@ -10,6 +10,7 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
+import { VisitorCounter } from "@/components/VisitorCounter";
 import { profile } from "@/data/portfolio";
 
 type FormState = "idle" | "loading" | "sent" | "error";
@@ -177,6 +178,7 @@ export function Contact() {
 
         <footer className="footer">
           <span>© 2026 ALEJANDRO LOZANO RESTREPO</span>
+          <VisitorCounter />
           <span>DISEÑADO COMO UN SISTEMA, NO COMO UNA PLANTILLA.</span>
           <a href="#inicio">VOLVER ARRIBA ↑</a>
         </footer>

@@ -2303,6 +2303,58 @@ img {
   color: var(--paper);
 }
 
+.visitor-counter {
+  min-width: 190px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  margin-block: -13px;
+  padding: 11px 14px;
+  border: 1px solid var(--line-strong);
+  background:
+    linear-gradient(135deg, rgba(88, 177, 205, 0.09), transparent 58%),
+    #07101a;
+  color: var(--paper);
+}
+
+.visitor-counter > svg {
+  width: 18px;
+  height: 18px;
+  color: var(--cyan);
+  stroke-width: 1.6;
+}
+
+.visitor-counter > span {
+  display: grid;
+  gap: 3px;
+}
+
+.visitor-counter small {
+  color: var(--muted);
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.visitor-counter strong {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--paper);
+  letter-spacing: 0.18em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.visitor-counter > i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan);
+  animation: proof-live 1.6s ease-in-out infinite;
+}
+
 :focus-visible {
   outline: 2px solid var(--acid);
   outline-offset: 4px;
@@ -2866,7 +2918,13 @@ img {
 
   .footer {
     flex-direction: column;
+    align-items: flex-start;
     margin-top: 90px;
+  }
+
+  .visitor-counter {
+    width: min(100%, 230px);
+    margin-block: 0;
   }
 }
 
