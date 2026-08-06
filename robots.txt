@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://alejodev17.github.io/Portafolio/sitemap.xml
