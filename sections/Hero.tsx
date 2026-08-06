@@ -40,7 +40,7 @@ export function Hero() {
           transition={{ delay: 1.42, duration: 0.65 }}
         >
           <span className="live-dot" />
-          Sistemas · Software · Automatización · IA
+          Sistemas · Software · Automatización · QA
         </motion.div>
 
         <div className="hero__title" aria-label="Alejandro Lozano Restrepo">

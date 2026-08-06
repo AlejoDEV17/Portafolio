@@ -3,16 +3,16 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import {
-  Bot,
   Braces,
-  BrainCircuit,
   Database,
+  UsersRound,
+  BadgeCheck,
   Workflow,
 } from "lucide-react";
 import { capabilities } from "@/data/portfolio";
 import { SectionHeading } from "@/components/SectionHeading";
 
-const icons = [Braces, Workflow, Database, Bot, BrainCircuit];
+const icons = [Braces, Workflow, Database, BadgeCheck, UsersRound];
 
 export function Technology() {
   const [active, setActive] = useState(0);

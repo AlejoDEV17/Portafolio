@@ -35,7 +35,7 @@ export function Profile() {
           <div className="profile__story" data-reveal>
             <p className="profile__lead">{profile.about}</p>
             <div className="profile__path" aria-label="Evolución profesional">
-              {["QA", "Automatización", "Desarrollo", "IA"].map(
+              {["QA", "Integración", "Automatización", "Desarrollo"].map(
                 (item, index) => (
                   <div key={item}>
                     <span>0{index + 1}</span>

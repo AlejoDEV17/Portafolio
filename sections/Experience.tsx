@@ -15,8 +15,8 @@ export function Experience() {
         <SectionHeading
           index="03"
           eyebrow="Experiencia"
-          title="Del control de calidad a la automatización inteligente."
-          description="Una evolución profesional construida desde la precisión: primero validar, luego optimizar y finalmente crear sistemas completos."
+          title="Del control de calidad a la automatización de sistemas."
+          description="Una evolución profesional construida desde la precisión: validar, integrar, automatizar y desarrollar soluciones empresariales completas."
         />
 
         <div className="experience__timeline" data-reveal>

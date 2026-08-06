@@ -30,11 +30,11 @@ const display = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Alejandro Lozano | Software, Automatización e IA",
+    default: "Alejandro Lozano | Software, Automatización y QA",
     template: "%s | Alejandro Lozano",
   },
   description:
-    "Portafolio de Alejandro Lozano Restrepo, Analista de Sistemas y Desarrollador de Software especializado en automatización, Python, RPA, APIs, QA e inteligencia artificial.",
+    "Portafolio de Alejandro Lozano Restrepo, Analista de Sistemas y Desarrollador de Software especializado en automatización, Python, APIs, bases de datos y QA.",
   keywords: [
     "Alejandro Lozano",
     "desarrollador de software Cali",
@@ -45,7 +45,8 @@ export const metadata: Metadata = {
     "Zoho Creator",
     "integración de APIs",
     "QA automation",
-    "AI Agents",
+    "n8n",
+    "Apache Airflow",
   ],
   authors: [{ name: profile.name, url: profile.github }],
   creator: profile.name,
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     locale: "es_CO",
-    title: "Alejandro Lozano — Software, Automatización e IA",
+    title: "Alejandro Lozano — Software, Automatización y QA",
     description:
       "Diseño soluciones digitales, automatizo procesos y conecto sistemas.",
     url: siteUrl,
@@ -64,9 +65,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alejandro Lozano — Software, Automatización e IA",
+    title: "Alejandro Lozano — Software, Automatización y QA",
     description:
-      "Desarrollo de software, automatización, integraciones y soluciones con IA.",
+      "Desarrollo de software, automatización, integraciones y aseguramiento de calidad.",
     images: [`${siteUrl}/og.png`],
   },
   category: "technology",
@@ -105,7 +106,8 @@ export default function RootLayout({
       "RPA",
       "Integración de APIs REST",
       "Quality Assurance",
-      "AI Agents",
+      "n8n",
+      "Apache Airflow",
     ],
   };
 
