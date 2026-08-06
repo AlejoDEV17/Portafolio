@@ -26,9 +26,9 @@ export function Technology() {
       <div className="container">
         <SectionHeading
           index="02"
-          eyebrow="Ecosistema"
-          title="Tecnología conectada, no una colección de logos."
-          description="Cada herramienta tiene un lugar en el sistema: construir, automatizar, integrar, validar y aprender."
+          eyebrow="Stack"
+          title="Del código a la automatización: tecnologías que convierten procesos en sistemas."
+          description="Mi stack reúne desarrollo, integración, datos y QA para construir soluciones empresariales escalables, automatizadas y listas para operar."
         />
 
         <div className="technology__system" data-reveal>
